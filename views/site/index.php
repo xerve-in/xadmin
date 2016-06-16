@@ -12,7 +12,8 @@ echo "<h2><a href='". Url::to(['categorypathmaps/index']) . "'> Seller category 
 echo "<h2><a href='". Url::to(['']) . "'> Server Status</a></h2>";
 
 echo "Test";
-echo "Test111";
+echo "Test111 - 999";
+echo "And anothe test";
 
 
 echo "Another Test";
