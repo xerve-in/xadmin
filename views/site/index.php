@@ -13,4 +13,6 @@ echo "<h2><a href='". Url::to(['']) . "'> Server Status</a></h2>";
 
 echo "Test";
 
+echo "Another Test";
+
 ?>
