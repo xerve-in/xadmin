@@ -141,7 +141,7 @@ class MastercategoriesController extends Controller
     }
     
     public function actionLists($id){
-        echo $id;
+        //echo $id;
          $countPosts = MasterCategories::find()
                 ->where(['parent_id' => $id])
                 ->count();
@@ -153,13 +153,13 @@ class MastercategoriesController extends Controller
                 ->all();
         //print_r($posts);exit;
         if($countPosts>0){
-            echo "<option>Select</option>";
+            echo "<option value=''>Select</option>";
             foreach($posts as $post){
                 echo "<option value='".$post->id."'>".$post->category_name."</option>";
             }
         }
         else{
-            echo "<option>---</option>";
+            echo "<option value=''>Select</option>";
         }
     }
     
