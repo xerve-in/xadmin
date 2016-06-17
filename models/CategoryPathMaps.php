@@ -39,14 +39,20 @@ class CategoryPathMaps extends \yii\db\ActiveRecord
     {
         return [
             [['seller', 's_cat_path'], 'required'],
+            [['x_cat_id'], 'required'],
             [['updated_dt'], 'safe'],
-            [['x_cat_id', 'x_subcat_id', 'x_type_id'], 'integer'],
+            //[['x_cat_id', 'x_subcat_id', 'x_type_id'], 'integer'],
+            //[['x_cat_id', 'x_subcat_id', 'x_type_id'], 'filter', 'filter'=>'empty2null'],
             [['seller', 'u_seller'], 'string', 'max' => 300],
             [['s_cat_path', 'x_cat', 'x_subcat', 'x_type'], 'string', 'max' => 750],
             [['x_cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => MasterCategories::className(), 'targetAttribute' => ['x_cat_id' => 'id']],
             [['x_subcat_id'], 'exist', 'skipOnError' => true, 'targetClass' => MasterCategories::className(), 'targetAttribute' => ['x_subcat_id' => 'id']],
             [['x_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => MasterCategories::className(), 'targetAttribute' => ['x_type_id' => 'id']],
         ];
+    }
+
+    function empty2null($value) {
+        return $value === '' ? null : $value;
     }
 
     /**

@@ -26,7 +26,7 @@ use yii\helpers\ArrayHelper;
     ['prompt'=>'Select Category',
         'onchange'=>'
                 $.post( "'.Yii::$app->urlManager->createUrl('mastercategories/lists?id=').'"+$(this).val(), function(data) {
-                  $( "select#x_subcat" ).html( data ); $( "select#x_type" ).html( "" );
+                  $( "select#x_subcat" ).html( data ); $( "select#x_type" ).html( "<option value=\"\">Select</option>" );
                 });
             ']); ?>
             </td>
@@ -36,7 +36,7 @@ use yii\helpers\ArrayHelper;
     echo $form->field($model, 'x_subcat_id')
         ->dropDownList(
             $dataPost,           
-            ['id'=>'x_subcat','prompt'=>'Select Sub Category','onchange'=>'
+            ['id'=>'x_subcat','prompt'=>'Select', 'onchange'=>'
                 $.post( "'.Yii::$app->urlManager->createUrl('mastercategories/lists?id=').'"+$(this).val(), function(data) {
                   $( "select#x_type" ).html( data );
                 });
@@ -49,7 +49,7 @@ use yii\helpers\ArrayHelper;
     echo $form->field($model, 'x_type_id')
         ->dropDownList(
             $dataPost,           
-            ['id'=>'x_type','prompt'=>'Select Type']);
+            ['id'=>'x_type','prompt'=>'Select']);
 ?>
             </td>
             
